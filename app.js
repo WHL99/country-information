@@ -8,8 +8,8 @@ const app = express();
 
 require("./config")(app);
 
-const indexRoutes = require("./routes/index.routes");
-app.use("/api", indexRoutes);
+const checkedListRoutes = require("./routes/index.routes");
+app.use("/api/checked-list", checkedListRoutes);
 
 require("./error-handling")(app);
 
