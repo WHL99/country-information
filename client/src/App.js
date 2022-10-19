@@ -3,7 +3,8 @@ import './custom.css';
 import Navbar from './components/Navbar';
 import { useState, useEffect } from 'react';
 import CountriesList from './components/CountriesList';
-
+import CountryDetails from './components/CountryDetails';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   const [allCountries, setAllCountries] = useState([])
@@ -27,8 +28,14 @@ function App() {
       <Navbar />
       <div className="d-flex flex-row">
 
-        <div>
+        <div className="col-3">
           <CountriesList countries={allCountries} />
+        </div>
+
+        <div style={{ position: 'fixed', top: '10vh', left: '33vw', overflow: 'scroll' }}>
+          <Routes>
+            <Route path="/:counrtyAlpha3Code" element={<CountryDetails countries={allCountries} />} />
+          </Routes>
         </div>
 
       </div>
