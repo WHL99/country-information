@@ -2,9 +2,10 @@ import './App.css';
 import './custom.css';
 import Navbar from './components/Navbar';
 import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
-import { Routes, Route } from 'react-router-dom';
+import CheckedCountriesList from './components/CheckedCountriesList';
 
 function App() {
   const [allCountries, setAllCountries] = useState([])
@@ -32,9 +33,15 @@ function App() {
           <CountriesList countries={allCountries} />
         </div>
 
-        <div style={{ position: 'fixed', top: '10vh', left: '33vw', overflow: 'scroll' }}>
+        <div className="col-6" style={{ position: 'fixed', top: '10vh', left: '25vw', overflow: 'scroll' }}>
           <Routes>
             <Route path="/:counrtyAlpha3Code" element={<CountryDetails countries={allCountries} />} />
+          </Routes>
+        </div>
+
+        <div className="col-3" style={{ position: 'relative', top: '0vh', right: '-50vw', overflow: 'scroll', paddingRight: '30px', borderLeft: '4px solid black' }}>
+          <Routes>
+            <Route path="/:counrtyAlpha3Code" element={<CheckedCountriesList countries={allCountries} />} />
           </Routes>
         </div>
 
