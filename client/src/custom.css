@@ -1,0 +1,8 @@
+body {
+    padding-top: 74px;
+}
+
+.border-country:hover {
+    color: white;
+    background-color: #61dafb;
+}
