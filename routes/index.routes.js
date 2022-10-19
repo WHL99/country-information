@@ -12,11 +12,20 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
   const { countryName, counrtyAlpha3Code } = req.body
-  CheckedList.create({ countryName, counrtyAlpha3Code })
-    .then(country => {
-      res.status(201).json(country)
+
+  CheckedList.findOne({ countryName })
+    .then((foundCountry) => {
+      if (foundCountry) {
+        res.status(400).json({ message: "The country is already checked." });
+        return;
+      }
+      return CheckedList.create({ countryName, counrtyAlpha3Code });
     })
-    .catch(err => next(err))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ message: "Oh no! Server Error" })
+    });
 });
 
 module.exports = router;
+
