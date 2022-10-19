@@ -33,16 +33,21 @@ function App() {
           <CountriesList countries={allCountries} />
         </div>
 
-        <div className="col-6" style={{ position: 'fixed', top: '10vh', left: '25vw', overflow: 'scroll' }}>
-          <Routes>
-            <Route path="/:counrtyAlpha3Code" element={<CountryDetails countries={allCountries} />} />
-          </Routes>
+        <div style={{ position: 'fixed', right: '30vw' }}>
+          <div className="col-6" style={{ position: '-webkit-sticky', position: 'sticky', top: '10vh', overflow: 'scroll', height: '100vh', width: '40vw' }}>
+            <Routes>
+              <Route path="/:counrtyAlpha3Code" element={<CountryDetails countries={allCountries} />} />
+            </Routes>
+          </div>
         </div>
 
-        <div className="col-3" style={{ position: 'relative', top: '0vh', right: '-50vw', overflow: 'scroll', paddingRight: '30px', borderLeft: '4px solid black' }}>
-          <Routes>
-            <Route path="/:counrtyAlpha3Code" element={<CheckedCountriesList countries={allCountries} />} />
-          </Routes>
+
+        <div style={{ position: 'fixed', right: '0vw' }}>
+          <div style={{ position: '-webkit-sticky', position: 'sticky', overflow: 'scroll', paddingRight: '30px', paddingBottom: '10vh', borderLeft: '4px solid black', height: '100vh', width: '24vw' }}>
+            <Routes>
+              <Route path="/:counrtyAlpha3Code" element={<CheckedCountriesList countries={allCountries} />} />
+            </Routes>
+          </div>
         </div>
 
       </div>
