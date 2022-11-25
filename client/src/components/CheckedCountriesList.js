@@ -18,7 +18,7 @@ function CheckedCountriesList({ countries }) {
 
     return (
         <div>
-            <h3 style={{ padding: '2vh 0 2vh 0' }}>You have checked the following countries:</h3>
+            <h3 style={{ padding: '2vh 0 2vh 0' }}>Website visitors have checked the following countries:</h3>
             {checkedList?.map((checkedCountry) => {
                 return (
                     <div>

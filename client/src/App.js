@@ -6,15 +6,21 @@ import { Routes, Route } from 'react-router-dom';
 import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
 import CheckedCountriesList from './components/CheckedCountriesList';
+import { Spinner } from 'react-bootstrap'
 
 function App() {
   const [allCountries, setAllCountries] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  const API = 'https://ih-countries-api.herokuapp.com/countries'
+
   const getAllCountries = () => {
-    fetch('https://ih-countries-api.herokuapp.com/countries')
+    setIsLoading(true)
+    fetch(API)
       .then((response) => response.json())
-      .then((data) =>
-        setAllCountries(data.sort((a, b) => a.name.common.localeCompare(b.name.common)
-        )))
+      .then((data) => {
+        setAllCountries(data.sort((a, b) => a.name.common.localeCompare(b.name.common)))
+        setIsLoading(false)
+      })
       .catch((error) => {
         console.error('Error:', error);
       });
@@ -28,9 +34,10 @@ function App() {
     <div className="App">
       <Navbar />
       <div className="d-flex flex-row">
-
         <div className="col-3">
-          <CountriesList countries={allCountries} />
+          {isLoading ? (<div class="d-flex align-items-center flex-column pt-5" ><Spinner animation="grow" size="md" /><h4>Loading...</h4></div>)
+            :
+            (<CountriesList countries={allCountries} />)}
         </div>
 
         <div style={{ position: 'fixed', right: '30vw' }}>
