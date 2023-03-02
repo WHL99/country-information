@@ -16,7 +16,7 @@ function CountriesList({ countries }) {
                         }} to={`/${country.alpha3Code}`} key={country.alpha3Code} style={{ textDecoration: 'none', color: 'gray', fontWeight: 'bolder', padding: '20px', fontSize: '1.5rem' }}>
                             {country.name.common}
                         </Link >
-                        <img src={`https://countryflagsapi.com/png/${country.alpha3Code.toLowerCase()}`} alt="flag" style={{ width: '45px' }} />
+                        <img crossOrigin="anonymous" src={`https://countryflagsapi.com/png/${country.alpha3Code.toLowerCase()}`} alt="flag" style={{ width: '45px' }} />
                     </div>
                 )
             })}

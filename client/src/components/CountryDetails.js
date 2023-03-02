@@ -31,10 +31,10 @@ function CountryDetails({ countries }) {
                     })
                     const nameOfCountry = country.name.common
                     return { nameOfCountry, alpha3CodeOfBorder }
-                }).map(({ nameOfCountry, alpha3CodeOfBorder }, index) => {
+                }).map(({ nameOfCountry, alpha3CodeOfBorder }) => {
                     return (
                         <li className="border-country m-2" key={uuidv4()} style={{ listStyleType: 'none' }} >
-                            <Link to={`/${alpha3CodeOfBorder}`} key={index} style={{ textDecoration: 'none', color: 'gray', fontWeight: 'bolder' }}>
+                            <Link to={`/${alpha3CodeOfBorder}`} style={{ textDecoration: 'none', color: 'gray', fontWeight: 'bolder' }}>
                                 <div className="border-country">{nameOfCountry}</div>
                             </Link >
                         </li>

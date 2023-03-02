@@ -35,7 +35,7 @@ function App() {
       <Navbar />
       <div className="d-flex flex-row">
         <div className="col-3">
-          {isLoading ? (<div class="d-flex align-items-center flex-column pt-5" ><Spinner animation="grow" size="md" /><h4>Loading...</h4></div>)
+          {isLoading ? (<div className="d-flex align-items-center flex-column pt-5" ><Spinner animation="grow" size="md" /><h4>Loading...</h4></div>)
             :
             (<CountriesList countries={allCountries} />)}
         </div>
